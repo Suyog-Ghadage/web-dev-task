@@ -1,0 +1,212 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #1f1e1e;
+  color: white;
+  overflow: hidden;
+}
+.todo-app{
+ display: flex;
+}
+.app-title{
+  text-align: center;
+  font-size: 0.7em;
+  margin-left: 30px;
+}
+
+.todo-wrapper{
+  background-color: #3c3a3a;
+  padding: 2%;
+  width: fit-content;
+  margin:10px auto 0 auto;
+  box-shadow: 0px 5px 7px black;
+  
+}
+.input-area{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+
+}
+.todo-inpute{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 25px;
+}
+.todo-inpute label{
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.todo-inpute input{
+  padding: 7px;
+  font-weight: 400;
+  border: none;
+  width: 200px;
+}
+.todo-inpute input:focus{
+  outline: 1.7px solid rgb(66, 227, 162);
+}
+.addtodo-btn{
+  padding: 8px 20px 8px 20px;
+  font-weight: 700;
+  color: white;
+  background-color: rgb(66, 227, 162);
+  border: none;
+  margin-top: 28px;
+  border-radius: 4px;
+}
+.addtodo-btn:hover{
+  box-shadow: 0px 0px 7px black;
+}
+.btn-area{
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+  margin-right: 30px;
+  justify-content: space-between;
+}
+.btn-area button{
+  padding: 5px 20px;
+  background-color: rgb(244, 247, 97);
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+}
+.btn-area button:hover{
+  box-shadow: 3px 6px 7px black;
+}
+
+/* stiyiling Todoitems component */
+
+.todolist-area{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: start;
+ margin-top:30px ;
+ padding-top: 25px;
+ background-color: #1f1e1e;
+ overflow: hidden;
+ overflow-y: scroll;
+ height: 52vh;
+}
+::-webkit-scrollbar{
+  background-color:none;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #8a8a8a;
+  border-radius: 15px;
+}
+
+.todo-item{
+ background-color: #292929;
+ margin-bottom: 20px;
+ display: flex;
+ justify-content: space-between;
+ width: 90%;
+ border-radius: 8px;
+ font-size: 0.8em;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  overflow: hidden;
+}
+.content h3{
+  color:rgb(66, 227, 162);
+  font-size: 0.8rem ;
+}
+
+.icons{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+/* add customized check box */
+label{
+  width: 25px;
+  height: 25px;
+  position: relative;
+  margin-right: 5px;
+  margin-bottom:5px;
+}
+label input{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+}
+label span{
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: 2px solid white;
+  border-radius: 5px;
+  cursor:pointer;
+} 
+label span::after{
+  content: ' ';
+  position: absolute;
+  left: 10px;
+  bottom: 5px;
+  width: 0;
+  height: 0;
+  border: solid #00ff0a;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+input:checked ~ span::after{
+  width: 10px;
+  height: 20px;
+  opacity: 1;
+}
+.icons img{
+  background-color: aliceblue;
+  margin-left: 10px;
+  width: 15px;
+  padding: 7px;
+  border:none;
+  border-radius: 25%;
+}
+.delet-icon:hover{
+  background-color: rgb(252, 65, 65);
+}
+.edit-icon:hover{
+  background-color:rgb(66, 227, 162);
+}
+
+/* styling footer buttons */
+
+.footer-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 0;
+}
+.footer-item button{
+  padding: 6px 12px;
+  font-weight: 700;
+  border: none;
+  border-radius: 3px;
+  background-color:rgb(164, 162, 162)
+}
+.footer-item button:hover{
+  box-shadow: 3px 6px 7px black;
+}
