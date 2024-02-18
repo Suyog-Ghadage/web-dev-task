@@ -1,0 +1,30 @@
+ /* navbar */
+ .navbar{
+    background-color: rgba(0, 0, 0, 0.598);
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    /* height: 10%; */
+    padding: 15px;
+}
+.logo{
+    font-weight: 700;
+    color:rgb(23, 248, 192);
+}
+.user{
+   display: flex;
+   gap: 15px;
+}
+.user img{
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.user button{
+    background: rgb(57, 57, 57);
+    font-size: 0.7em;
+    color: rgba(255, 255, 255, 0.733);
+    cursor: pointer;
+}

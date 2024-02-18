@@ -1,0 +1,41 @@
+
+.input{
+    background: rgb(48, 55, 62);
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    gap: 2%;
+}
+.input input{
+    border: none;
+    outline: none;
+    background:none;
+    width: 100%;
+    font-weight: 600;
+    color: rgb(186, 184, 184);
+}
+.sendIcons{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+}
+.sendIcons img{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.sendIcons button{
+    background-image: linear-gradient(65deg, rgb(130, 190, 210), rgb(4, 102, 135));
+    border: none;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: rgb(10, 10, 10);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.sendIcons button:hover{
+    background-image: linear-gradient(65deg, rgb(184, 200, 205), rgb(145, 210, 243));
+}

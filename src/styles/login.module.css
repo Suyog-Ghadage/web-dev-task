@@ -1,0 +1,61 @@
+.registerPage{
+    background-image: linear-gradient(145deg,rgb(121, 248, 206),rgb(40, 54, 54));
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .registerWrapper{
+    background-color: rgb(39, 39, 39);
+    /* background-color: white; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 40px;
+    border-radius: 10px;
+    gap: 15px;
+    width: auto;
+    }
+    .registerWrapper form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .logo{
+        color: rgb(23, 248, 192);
+        font-weight: 700;
+        font-size: 2em;
+    }
+    .title{
+        color: rgb(255, 201, 5);
+        font-weight: 500;
+        margin-top:-5px;
+    }
+    form input{
+        padding: 10px;
+        /* width: 2vw; */
+        background-color: none;
+        border:none;
+        border-bottom: 1px solid red;
+        
+    }
+    form button{
+        padding: 10px 20px;
+        font-weight: 600;
+        border:none;
+        border-radius: 5px;
+    }
+     form button:hover{
+        background-color: rgb(255, 201, 5);
+        cursor: pointer;
+     }
+    p{
+        color: rgb(59, 241, 241);
+        margin-top: -10px;
+    }
+    p a{
+        text-decoration: none;
+        color: rgb(255, 201, 5);
+    }
