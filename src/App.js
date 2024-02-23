@@ -1,35 +1,97 @@
-import { useContext } from "react";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import { BrowserRouter,Routes,Route,Navigate } from "react-router-dom";
-import { AuthContext } from "./context/AuthContext";
+import React, { useState } from 'react';
+import './App.css';
 
+const initialState = {
+  squares: Array(9).fill(null),
+  xIsNext: true,
+  winner: null,
+};
 
-function App() {
-  const {currentUser}=useContext(AuthContext);
-  const ProtectedRoute=({children})=>{
-    if(!currentUser){
-      return <Navigate to="/login" />
+const calculateWinner = (squares) => {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
     }
-    return children;
   }
-  return (
-    <BrowserRouter basename="/react-chat-webapp">
-     <Routes>
-       <Route path="/">
-        <Route index element={
-          <ProtectedRoute>
-            <Home/>
-          </ProtectedRoute>
-        }/>
-        <Route path="login" element={<Login/>}/>
-        <Route path="register" element={<Register/>}/>
-       </Route>
-     </Routes>
-    </BrowserRouter>
-  
+
+  return null;
+};
+
+const App = () => {
+  const [state, setState] = useState(initialState);
+
+  const handleClick = (index) => {
+    if (state.squares[index] || state.winner) {
+      return;
+    }
+
+    const newSquares = state.squares.slice();
+    newSquares[index] = state.xIsNext ? 'X' : 'O';
+
+    setState({
+      squares: newSquares,
+      xIsNext: !state.xIsNext,
+      winner: calculateWinner(newSquares),
+    });
+  };
+
+  const resetGame = () => {
+    setState(initialState);
+  };
+
+  const renderSquare = (index) => (
+    <button className="square" onClick={() => handleClick(index)}>
+      {state.squares[index]}
+    </button>
   );
-}
+
+  const getStatus = () => {
+    if (state.winner) {
+      return `Winner: ${state.winner}`;
+    } else {
+      return `Next player: ${state.xIsNext ? 'X' : 'O'}`;
+    }
+  };
+
+  return (
+    <div className="game-container">
+      <div className="game">
+        <div className="status">{getStatus()}</div>
+        <div className="board">
+          <div className="board-row">
+            {renderSquare(0)}
+            {renderSquare(1)}
+            {renderSquare(2)}
+          </div>
+          <div className="board-row">
+            {renderSquare(3)}
+            {renderSquare(4)}
+            {renderSquare(5)}
+          </div>
+          <div className="board-row">
+            {renderSquare(6)}
+            {renderSquare(7)}
+            {renderSquare(8)}
+          </div>
+        </div>
+        <button className="reset-button" onClick={resetGame}>
+          Reset Game
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default App;
